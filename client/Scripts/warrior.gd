@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export_category("Stats")
 @export var baseSpeed:float = 400	# En velocity par seconde
 
-@onready var animation : AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation : AnimationPlayer = $AnimationPlayer
+@onready var sprite : Sprite2D = $Sprite2D
 
 #func _process(delta: float) -> void:
 func _process(delta: float) -> void:
@@ -23,13 +24,13 @@ func _process(delta: float) -> void:
 	if move == Vector2.ZERO:
 		animation.play("idle")	
 	else:
-		animation.play("walk_right")
+		animation.play("walk")
 
 	if move.x != 0:
 		if move.x < 0:
-			animation.flip_h = true
+			sprite.flip_h = true
 		else :
-			animation.flip_h = false
+			sprite.flip_h = false
 		
 	set_velocity(move)	
 	move_and_slide()

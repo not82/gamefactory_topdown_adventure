@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c023wltllhwcw"]
+[gd_scene load_steps=14 format=3 uid="uid://c023wltllhwcw"]
 
 [ext_resource type="Script" uid="uid://bq8bl80qco6ri" path="res://Scripts/warrior.gd" id="1_x6xf2"]
 [ext_resource type="Texture2D" uid="uid://b5tt8nbcwgb47" path="res://Assets/SpriteSheet/Warrior_Red.png" id="2_hm3oh"]
@@ -61,152 +61,29 @@ _data = {
 &"walk": SubResource("Animation_7s07r")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7s07r"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(0, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_562wa"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(192, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0dgv"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(384, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1kn0w"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(576, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vsx5x"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(768, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dldpb"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(960, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wl5ot"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(0, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kapml"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(192, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnghw"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(384, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnp24"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(576, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdjch"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(768, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbuwn"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(960, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt0o3"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(0, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7c6l"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(192, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_va0e3"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(384, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_noca5"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(576, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qg0pr"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(768, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcrnf"]
-atlas = ExtResource("2_hm3oh")
-region = Rect2(960, 192, 192, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2jfls"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7s07r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_562wa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m0dgv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1kn0w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vsx5x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dldpb")
-}],
-"loop": true,
-"name": &"attack1_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wl5ot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kapml")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fnghw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnp24")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rdjch")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kbuwn")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lt0o3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g7c6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_va0e3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_noca5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qg0pr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rcrnf")
-}],
-"loop": true,
-"name": &"walk_right",
-"speed": 5.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6xf2"]
 radius = 20.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x6xf2"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hm3oh"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7s07r"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_562wa"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m0dgv"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1kn0w"]
+states/End/position = Vector2(1018, 111)
+states/idle/node = SubResource("AnimationNodeAnimation_x6xf2")
+states/idle/position = Vector2(385, 125)
+states/walk/node = SubResource("AnimationNodeAnimation_hm3oh")
+states/walk/position = Vector2(620, 75)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7s07r"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_562wa"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_m0dgv")]
 
 [node name="Warrior" type="CharacterBody2D"]
 script = ExtResource("1_x6xf2")
@@ -222,12 +99,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_562wa")
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, -32)
-sprite_frames = SubResource("SpriteFrames_2jfls")
-animation = &"idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)
 shape = SubResource("CircleShape2D_x6xf2")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_1kn0w")
+anim_player = NodePath("../AnimationPlayer")

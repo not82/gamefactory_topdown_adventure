@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c023wltllhwcw"]
+[gd_scene load_steps=23 format=3 uid="uid://c023wltllhwcw"]
 
 [ext_resource type="Script" uid="uid://bq8bl80qco6ri" path="res://Scripts/warrior.gd" id="1_x6xf2"]
 [ext_resource type="Texture2D" uid="uid://b5tt8nbcwgb47" path="res://Assets/SpriteSheet/Warrior_Red.png" id="2_hm3oh"]
@@ -147,10 +147,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6xf2"]
+radius = 20.0
+
 [node name="Warrior" type="CharacterBody2D"]
 script = ExtResource("1_x6xf2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -33)
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_2jfls")
-animation = &"walk_right"
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -18)
+shape = SubResource("CircleShape2D_x6xf2")

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export_category("Stats")
 @export var baseSpeed:float = 400	# En velocity par seconde
+@export var attackSpeed:float = 0.6
 
 #@onready var animation : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -10,15 +11,19 @@ extends CharacterBody2D
 
 enum State {
 	IDLE,
-	WALK
+	WALK,
+	ATTACK
 }
 
 var state : State = State.IDLE
 
+func _ready()->void:
+	animationTree.set_active(true)
+
 #func _process(delta: float) -> void:
 func _process(delta: float) -> void:
+	
 	var move = Vector2.ZERO
-
 #	Inputs
 	if Input.is_action_pressed("right"):
 		move.x += baseSpeed
@@ -28,8 +33,16 @@ func _process(delta: float) -> void:
 		move.y -= baseSpeed
 	if Input.is_action_pressed("down"):
 		move.y += baseSpeed
+	
+	if Input.is_action_just_pressed("attack"):
+		attack(move)
+		
+	if state == State.ATTACK:
+		return
+		
+	handleMove(move)
 
-# Animations
+func handleMove(move) -> void:
 	if move == Vector2.ZERO && state == State.WALK:
 		state = State.IDLE
 		updateAnimation()
@@ -51,3 +64,19 @@ func updateAnimation() -> void:
 			animationPlayback.travel("idle")
 		State.WALK:
 			animationPlayback.travel("walk")
+		State.ATTACK:
+			animationPlayback.travel("attack")
+
+func attack(currentMove : Vector2) -> void:
+	if state == State.ATTACK:
+		return
+	state = State.ATTACK
+	
+	
+	var attackDir = currentMove.normalized()
+	sprite.flip_h = attackDir.x < 0
+	animationTree.set("parameters/attack/BlendSpace2D/blend_position", attackDir)
+	updateAnimation()
+	await get_tree().create_timer(attackSpeed).timeout
+	state = State.IDLE
+	updateAnimation()

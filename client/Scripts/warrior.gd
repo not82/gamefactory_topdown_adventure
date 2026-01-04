@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export_category("Stats")
 @export var baseSpeed:float = 400	# En velocity par seconde
 @export var attackSpeed:float = 0.6
+@export var attack_damage:int = 60
 
 #@onready var animation : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -18,7 +19,11 @@ enum State {
 var state : State = State.IDLE
 
 func _ready()->void:
+	
+	#$HitBox.monitoring = false
+	print("Monitoring au ready:", $HitBox.monitoring)
 	animationTree.set_active(true)
+	
 
 #func _process(delta: float) -> void:
 func _process(delta: float) -> void:
@@ -80,3 +85,7 @@ func attack(currentMove : Vector2) -> void:
 	await get_tree().create_timer(attackSpeed).timeout
 	state = State.IDLE
 	updateAnimation()
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	area.owner.take_damage(attack_damage)

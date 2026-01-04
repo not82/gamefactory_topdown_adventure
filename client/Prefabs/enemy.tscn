@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7faef1c1defl"]
+[gd_scene load_steps=27 format=3 uid="uid://c7faef1c1defl"]
 
 [ext_resource type="Script" uid="uid://btjh8gj7ggsri" path="res://Scripts/enemy.gd" id="1_lgw76"]
+[ext_resource type="PackedScene" uid="uid://decr7bri8gajx" path="res://Scenes/effects/death.tscn" id="2_30yes"]
 [ext_resource type="Texture2D" uid="uid://b5rmihq5154vb" path="res://Assets/SpriteSheet/Warrior_Purple.png" id="2_t4g6b"]
 
 [sub_resource type="Animation" id="Animation_hm3oh"]
@@ -178,8 +179,13 @@ states/walk/position = Vector2(656, 111)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7s07r"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_562wa"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_m0dgv"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_kapml")]
 graph_offset = Vector2(16, 102)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgw76"]
+radius = 21.0
+height = 70.0
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_lgw76")
+death_packed = ExtResource("2_30yes")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -202,3 +208,13 @@ tree_root = SubResource("AnimationNodeStateMachine_1kn0w")
 anim_player = NodePath("../AnimationPlayer")
 parameters/attack/BlendSpace2D/blend_position = Vector2(0.0031898022, 0.9858824)
 parameters/attack/TimeScale/scale = 1.0
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -35)
+shape = SubResource("CapsuleShape2D_lgw76")

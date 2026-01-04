@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://c34c15b20312"]
+[gd_scene load_steps=51 format=4 uid="uid://c34c15b20312"]
 
 [ext_resource type="Texture2D" uid="uid://ddjnd64lv22l3" path="res://Assets/environment/tilesheets/Water Background color.png" id="1_qg828"]
 [ext_resource type="Texture2D" uid="uid://dcns0lgsalxqn" path="res://Assets/environment/tilesheets/Water Foam.png" id="2_0314m"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dnx3ll0rslah" path="res://Assets/environment/tiles/04.png" id="20_wnkcm"]
 [ext_resource type="Texture2D" uid="uid://b0fk1rxs70ln6" path="res://Assets/environment/tiles/05.png" id="21_dycke"]
 [ext_resource type="PackedScene" uid="uid://c023wltllhwcw" path="res://Prefabs/Warrior.tscn" id="22_y2uhi"]
+[ext_resource type="PackedScene" uid="uid://c7faef1c1defl" path="res://Prefabs/enemy.tscn" id="23_n1xgc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e11n1"]
 texture = ExtResource("1_qg828")
@@ -579,3 +580,11 @@ tile_set = SubResource("TileSet_5pd8k")
 
 [node name="Warrior" parent="." instance=ExtResource("22_y2uhi")]
 position = Vector2(188, 512)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("23_n1xgc")]
+position = Vector2(659, 269)
+
+[node name="Effects" type="Node2D" parent="."]
+unique_name_in_owner = true
